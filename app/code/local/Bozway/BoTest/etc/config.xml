@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<Bozway_BoTest>
+			<version>0.0.1</version>
+		</Bozway_BoTest>
+	</modules>
+	<frontend>
+		<router>
+			<test_controller>
+				<use>standard</use>
+				<args>
+					<module>Bozway_BoTest</module>
+					<frontname>requestflowtest</frontname>
+				</args>
+			</test_controller>
+		</router>
+	</frontend>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<Bozway_BoTest>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Bozway_BoTest>
+	</modules>
+</config>
