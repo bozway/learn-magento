@@ -42,7 +42,7 @@
                 <connection>
                     <host><![CDATA[localhost]]></host>
                     <username><![CDATA[lm_lm]]></username>
-                    <password><![CDATA[3PkS4qqyl2]]></password>
+                    <password><![CDATA[dev2013]]></password>
                     <dbname><![CDATA[lm_lm]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
