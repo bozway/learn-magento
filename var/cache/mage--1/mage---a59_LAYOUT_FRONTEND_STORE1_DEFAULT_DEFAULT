@@ -118,6 +118,7 @@
       </block>
       <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
          <label>Page Bottom</label>
+         <block type="page/html_cookieNotice" name="global_cookie_notice" as="global_cookie_notice" template="page/html/cookienotice.phtml" before="-"/>
       </block>
    </block>
    <block type="core/profiler" output="toHtml" name="core_profiler"/>
@@ -1596,7 +1597,11 @@
             <action method="setValueProperties">
                <value>class="last a-right"</value>
             </action>
-            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml"/>
+            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+               <action method="setIsPlaneMode">
+                  <value>1</value>
+               </action>
+            </block>
          </block>
       </block>
    </reference>
@@ -1635,7 +1640,11 @@
             <action method="setValueProperties">
                <value>class="a-right"</value>
             </action>
-            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml"/>
+            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+               <action method="setIsPlaneMode">
+                  <value>1</value>
+               </action>
+            </block>
          </block>
       </block>
    </reference>
@@ -1688,7 +1697,11 @@
          <action method="setValueProperties">
             <value>align="right" style="padding:3px 9px"</value>
          </action>
-         <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml"/>
+         <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+            <action method="setIsPlaneMode">
+               <value>1</value>
+            </action>
+         </block>
       </block>
    </block>
    <block type="core/text_list" name="additional.product.info"/>
@@ -1722,7 +1735,11 @@
          <action method="setValueProperties">
             <value>align="right" style="padding:3px 9px"</value>
          </action>
-         <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml"/>
+         <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+            <action method="setIsPlaneMode">
+               <value>1</value>
+            </action>
+         </block>
       </block>
    </block>
    <block type="core/text_list" name="additional.product.info"/>
@@ -2020,7 +2037,11 @@
             <action method="setValueProperties">
                <value>class="last a-right"</value>
             </action>
-            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml"/>
+            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+               <action method="setIsPlaneMode">
+                  <value>1</value>
+               </action>
+            </block>
          </block>
       </block>
    </reference>
@@ -2057,7 +2078,11 @@
             <action method="setValueProperties">
                <value>class="a-right"</value>
             </action>
-            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml"/>
+            <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+               <action method="setIsPlaneMode">
+                  <value>1</value>
+               </action>
+            </block>
          </block>
       </block>
    </reference>
@@ -3003,24 +3028,6 @@
       </action>
    </reference>
 </customer_account_index>
-<checkout_cart_index>
-   <reference name="checkout.cart.top_methods">
-      <block type="googlecheckout/link" name="checkout.cart.methods.googlecheckout.top" template="googlecheckout/link.phtml" before="-"/>
-   </reference>
-   <reference name="checkout.cart.methods">
-      <block type="googlecheckout/link" name="checkout.cart.methods.googlecheckout.bottom" template="googlecheckout/link.phtml"/>
-   </reference>
-</checkout_cart_index>
-<googlecheckout_redirect_redirect>
-   <reference name="root">
-      <action method="setTemplate">
-         <template>page/2columns-right.phtml</template>
-      </action>
-   </reference>
-   <reference name="content">
-      <block type="googlecheckout/redirect" name="googlecheckout_redirect" template="page/redirect.phtml"/>
-   </reference>
-</googlecheckout_redirect_redirect>
 <customer_account>
    <reference name="customer_account_navigation">
       <action method="addLink" translate="label" module="review">
@@ -3217,7 +3224,7 @@
    </reference>
 </catalog_category_layered_nochildren>
 <default>
-   <reference name="after_body_start">
+   <reference name="head" before="-">
       <block type="googleanalytics/ga" name="google_analytics" as="google_analytics" template="googleanalytics/ga.phtml"/>
    </reference>
 </default>
